@@ -25,6 +25,7 @@
 #import <Foundation/Foundation.h>
 
 #import "OAMutableURLRequest.h"
+#import "OAServiceTicket.h"
 
 @interface OAAsynchronousDataFetcher : NSObject {
     OAMutableURLRequest *request;
@@ -34,9 +35,14 @@
     id delegate;
     SEL didFinishSelector;
     SEL didFailSelector;
+    void (^completion)(OAServiceTicket *ticket, NSData *responseData);
+    void (^failure)(OAServiceTicket *ticket, NSError *error);
 }
 
 + (id)asynchronousFetcherWithRequest:(OAMutableURLRequest *)aRequest delegate:(id)aDelegate didFinishSelector:(SEL)finishSelector didFailSelector:(SEL)failSelector;
++ (id)asynchronousFetcherWithRequest:(OAMutableURLRequest *)aRequest completion:(void (^)(OAServiceTicket *ticket, NSData *responseData))aCompletion failure:(void (^)(OAServiceTicket *ticket, NSError *error))aFailure;
+- (id)initWithRequest:(OAMutableURLRequest *)aRequest completion:(void (^)(OAServiceTicket *ticket, NSData *responseData))aCompletion failure:(void (^)(OAServiceTicket *ticket, NSError *error))aFailure;
+
 - (id)initWithRequest:(OAMutableURLRequest *)aRequest delegate:(id)aDelegate didFinishSelector:(SEL)finishSelector didFailSelector:(SEL)failSelector;
 
 - (void)start;

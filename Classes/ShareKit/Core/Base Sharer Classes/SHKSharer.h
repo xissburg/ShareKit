@@ -33,13 +33,13 @@
 
 @protocol SHKSharerDelegate <NSObject>
 
+@optional
 - (void)sharerStartedSending:(SHKSharer *)sharer;
 - (void)sharerFinishedSending:(SHKSharer *)sharer;
 - (void)sharer:(SHKSharer *)sharer failedWithError:(NSError *)error shouldRelogin:(BOOL)shouldRelogin;
 - (void)sharerCancelledSending:(SHKSharer *)sharer;
 - (void)sharerShowBadCredentialsAlert:(SHKSharer *)sharer;
 - (void)sharerShowOtherAuthorizationErrorAlert:(SHKSharer *)sharer;
-@optional
 - (void)sharerAuthDidFinish:(SHKSharer *)sharer success:(BOOL)success;	
 
 @end

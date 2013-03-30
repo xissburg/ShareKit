@@ -41,6 +41,7 @@ NSString * const kSHKTumblrUserInfo = @"kSHKTumblrUserInfo";
 @implementation SHKTumblr
 
 @synthesize getUserBlogsObserver;
+@synthesize userInfo = _userInfo;
 
 - (void)dealloc {
     
@@ -106,6 +107,13 @@ NSString * const kSHKTumblrUserInfo = @"kSHKTumblrUserInfo";
 	[super logout];
 }
 
+- (NSDictionary *)userInfo
+{
+    if (_userInfo == nil) {
+        _userInfo = [[NSUserDefaults standardUserDefaults] objectForKey:kSHKTumblrUserInfo];
+    }
+    return _userInfo;
+}
 
 #pragma mark -
 #pragma mark Share Form
@@ -374,6 +382,8 @@ NSString * const kSHKTumblrUserInfo = @"kSHKTumblrUserInfo";
     return result;
 }
 
+
+
 - (void)sendRequest:(OAMutableURLRequest *)finalizedRequest {
     
     // Start the request
@@ -400,6 +410,8 @@ NSString * const kSHKTumblrUserInfo = @"kSHKTumblrUserInfo";
                 }
                 
                 [userInfo convertNSNullsToEmptyStrings];
+                userInfo = [[userInfo objectForKey:@"response"] objectForKey:@"user"];
+                _userInfo = [userInfo copy];
                 [[NSUserDefaults standardUserDefaults] setObject:userInfo forKey:kSHKTumblrUserInfo];
             
                 break;
@@ -429,6 +441,71 @@ NSString * const kSHKTumblrUserInfo = @"kSHKTumblrUserInfo";
 {
 	SHKLog(@"Tumblr send failed with error:%@", [error description]);
     [self sendShowSimpleErrorAlert];
+}
+
+- (void)getUserInfoWithCompletion:(void (^)(NSDictionary *userInfo))completion failure:(void (^)(NSError *error))failure
+{
+    OAMutableURLRequest *oRequest = [[OAMutableURLRequest alloc] initWithURL:[NSURL URLWithString:@"http://api.tumblr.com/v2/user/info"]
+                                                                                                           consumer:consumer
+                                                                                                              token:accessToken
+                                                                                                              realm:nil
+                                                                                                  signatureProvider:nil];
+    [oRequest setHTTPMethod:@"GET"];
+    OAAsynchronousDataFetcher *fetcher = [OAAsynchronousDataFetcher asynchronousFetcherWithRequest:oRequest completion:^(OAServiceTicket *ticket, NSData *data) {
+        if (ticket.didSucceed) {
+            NSError *error = nil;
+            NSMutableDictionary *userInfo = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:&error];
+
+            if (error) {
+                SHKLog(@"Error when parsing json tumblr user info request:%@", [error description]);
+                if (failure) {
+                    failure(error);
+                }
+                return;
+            }
+
+            [userInfo convertNSNullsToEmptyStrings];
+
+            // Only take what we want
+            userInfo = [[userInfo objectForKey:@"response"] objectForKey:@"user"];
+            _userInfo = [userInfo copy];
+            [[NSUserDefaults standardUserDefaults] setObject:userInfo forKey:kSHKTumblrUserInfo];
+            /*
+            NSMutableArray *urls = [NSMutableArray array];
+            NSDictionary *blogs = [userInfo objectForKey:@"blogs"];
+            
+            for (NSDictionary *blog in blogs) {
+                NSString *url = [blog objectForKey:@"url"];
+                url = [url stringByReplacingOccurrencesOfString:@"http://" withString:@""];
+                url = [url stringByReplacingOccurrencesOfString:@"https://" withString:@""];
+                if ([url hasSuffix:@"/"])
+                    url = [url substringToIndex:[url length] - 1];
+                
+                [urls addObject:url];
+            }
+            
+            [self optionsEnumerated:urls];
+            */
+            if (completion) {
+                completion(userInfo);
+            }
+        }
+        else {
+            [self sendShowSimpleErrorAlert];
+            if (failure) {
+                failure(nil);
+            }
+        }
+    } failure:^(OAServiceTicket *ticket, NSError *error) {
+        [self sendDidFailWithError:error];
+            
+        if (failure) {
+            failure(error);
+        }
+    }];
+    
+    [fetcher start];
+    [oRequest release];
 }
 
 #pragma mark - SHKFormOptionControllerOptionProvider delegate methods
@@ -472,9 +549,7 @@ NSString * const kSHKTumblrUserInfo = @"kSHKTumblrUserInfo";
 }
 
 - (NSArray *)userBlogURLs {
-    
-    NSDictionary *userInfo = [[NSUserDefaults standardUserDefaults] objectForKey:kSHKTumblrUserInfo];
-    NSArray *usersBlogs = [[[userInfo objectForKey:@"response"] objectForKey:@"user"] objectForKey:@"blogs"];
+    NSArray *usersBlogs = [self.userInfo objectForKey:@"blogs"];
     NSMutableArray *result = [[@[] mutableCopy] autorelease];
     for (NSDictionary *blog in usersBlogs) {
         NSURL *blogURL = [NSURL URLWithString:[blog objectForKey:@"url"]];

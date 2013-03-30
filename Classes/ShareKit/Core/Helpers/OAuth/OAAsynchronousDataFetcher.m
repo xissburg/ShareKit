@@ -24,13 +24,27 @@
 
 #import "OAAsynchronousDataFetcher.h"
 #import "DefaultSHKConfigurator.h"
-#import "OAServiceTicket.h"
 
 @implementation OAAsynchronousDataFetcher
 
 + (id)asynchronousFetcherWithRequest:(OAMutableURLRequest *)aRequest delegate:(id)aDelegate didFinishSelector:(SEL)finishSelector didFailSelector:(SEL)failSelector
 {
 	return [[[OAAsynchronousDataFetcher alloc] initWithRequest:aRequest delegate:aDelegate didFinishSelector:finishSelector didFailSelector:failSelector] autorelease];
+}
+
++ (id)asynchronousFetcherWithRequest:(OAMutableURLRequest *)aRequest completion:(void (^)(OAServiceTicket *, NSData *))aCompletion failure:(void (^)(OAServiceTicket *, NSError *))aFailure
+{
+        return [[[OAAsynchronousDataFetcher alloc] initWithRequest:aRequest completion:aCompletion failure:aFailure] autorelease];
+}
+
+- (id)initWithRequest:(OAMutableURLRequest *)aRequest completion:(void (^)(OAServiceTicket *, NSData *))aCompletion failure:(void (^)(OAServiceTicket *, NSError *))aFailure
+{
+    if (self = [super init]) {
+        request = [aRequest retain];
+        completion = [aCompletion copy];
+        failure = [aFailure copy];
+    }
+    return self;
 }
 
 - (id)initWithRequest:(OAMutableURLRequest *)aRequest delegate:(id)aDelegate didFinishSelector:(SEL)finishSelector didFailSelector:(SEL)failSelector
@@ -92,6 +106,8 @@
 	if (connection) [connection release];
 	if (response) [response release];
 	if (responseData) [responseData release];
+    [completion release];
+    [failure release];
 	[super dealloc];
 }
 
@@ -116,13 +132,16 @@
 	OAServiceTicket *ticket= [[OAServiceTicket alloc] initWithRequest:request
 															 response:response
 														   didSucceed:NO];
-	[delegate performSelector:didFailSelector
-				   withObject:ticket
-				   withObject:error];
-    SHKLog(@"connection did fail with error:%@", [error description]);
-    [delegate release];
-    delegate = nil;
+	if (didFailSelector) {
+        [delegate performSelector:didFailSelector withObject:ticket withObject:error];
+        [delegate release];
+        delegate = nil;
+    }
+    else if (failure) {
+        failure(ticket, error);
+    }
 	
+    SHKLog(@"connection did fail with error:%@", [error description]);
 	[ticket release];
 }
 
@@ -131,13 +150,16 @@
 	OAServiceTicket *ticket = [[OAServiceTicket alloc] initWithRequest:request
 															  response:response
 															didSucceed:[(NSHTTPURLResponse *)response statusCode] < 400];
-	[delegate performSelector:didFinishSelector
-				   withObject:ticket
-				   withObject:responseData];
+	if (didFinishSelector) {
+        [delegate performSelector:didFinishSelector withObject:ticket withObject:responseData];
+        [delegate release];
+        delegate = nil;
+    }
+    else if (completion) {
+        completion(ticket, responseData);
+    }
+
     SHKLog(@"connection finished with response:%@", [[[NSString alloc] initWithData:responseData encoding:NSUTF8StringEncoding] autorelease]);
-    [delegate release];
-    delegate = nil;
-	
 	[ticket release];
 }
 

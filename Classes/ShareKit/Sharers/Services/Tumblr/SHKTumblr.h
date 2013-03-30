@@ -44,4 +44,8 @@ extern NSString * const kSHKTumblrUserInfo;
 
 @interface SHKTumblr : SHKOAuthSharer <SHKFormOptionControllerOptionProvider>
 
+@property (nonatomic, readonly) NSDictionary *userInfo;
+
+- (void)getUserInfoWithCompletion:(void (^)(NSDictionary *userInfo))completion failure:(void (^)(NSError *error))failure;
+
 @end
