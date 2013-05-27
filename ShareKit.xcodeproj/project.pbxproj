@@ -225,20 +225,6 @@
 			remoteGlobalIDString = AABBED7E162F0C4D009D46E4;
 			remoteInfo = Tumbl;
 		};
-		AA6C09F216122ED90023EE48 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = AA6C09EA16122ED90023EE48 /* facebook-ios-sdk.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = D2AAC07E0554694100DB518D;
-			remoteInfo = "facebook-ios-sdk";
-		};
-		AA75856F1624AABF001EFCBE /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = AA6C09EA16122ED90023EE48 /* facebook-ios-sdk.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = B9CBC519152537270036AA71;
-			remoteInfo = FacebookSDKTests;
-		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
@@ -368,8 +354,6 @@
 		43A536BC11DBE3B9004A1712 /* SHKMail.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = SHKMail.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		43A536BE11DBE3B9004A1712 /* SHKSafari.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SHKSafari.h; sourceTree = "<group>"; };
 		43A536BF11DBE3B9004A1712 /* SHKSafari.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = SHKSafari.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
-		43A536DC11DBE3B9004A1712 /* SHKFacebook.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SHKFacebook.h; sourceTree = "<group>"; };
-		43A536DD11DBE3B9004A1712 /* SHKFacebook.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = SHKFacebook.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		43A536DF11DBE3B9004A1712 /* SHKGoogleReader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SHKGoogleReader.h; sourceTree = "<group>"; };
 		43A536E011DBE3B9004A1712 /* SHKGoogleReader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = SHKGoogleReader.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		43A536E211DBE3B9004A1712 /* SHKPinboard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SHKPinboard.h; sourceTree = "<group>"; };
@@ -523,8 +507,6 @@
 		7A56BFBF1659173D00134F04 /* SHKiOSSharer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SHKiOSSharer.h; sourceTree = "<group>"; };
 		7A56BFC01659173D00134F04 /* SHKiOSSharer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = SHKiOSSharer.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		7A56BFD716591D5500134F04 /* SHKiOSSharer_Protected.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SHKiOSSharer_Protected.h; sourceTree = "<group>"; };
-		7A56BFD816591FE000134F04 /* SHKiOSFacebook.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SHKiOSFacebook.h; sourceTree = "<group>"; };
-		7A56BFD916591FE000134F04 /* SHKiOSFacebook.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SHKiOSFacebook.m; sourceTree = "<group>"; };
 		7A56BFDF1659278E00134F04 /* SHKiOS5Twitter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SHKiOS5Twitter.h; sourceTree = "<group>"; };
 		7A56BFE01659278E00134F04 /* SHKiOS5Twitter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = SHKiOS5Twitter.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		7A74C18616E8A64400CFDFC3 /* Singleton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Singleton.h; sourceTree = "<group>"; };
@@ -583,7 +565,6 @@
 		AA3B1DE41612938F00036C82 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
 		AA511B7E14C893A10022332B /* SHKFormOptionController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SHKFormOptionController.h; sourceTree = "<group>"; };
 		AA511B7F14C893A10022332B /* SHKFormOptionController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SHKFormOptionController.m; sourceTree = "<group>"; };
-		AA6C09EA16122ED90023EE48 /* facebook-ios-sdk.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = "facebook-ios-sdk.xcodeproj"; path = "Submodules/facebook-ios-sdk/src/facebook-ios-sdk.xcodeproj"; sourceTree = SOURCE_ROOT; };
 		AAACE01513CCB1F500A2118F /* DefaultSHKConfigurator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DefaultSHKConfigurator.h; sourceTree = "<group>"; };
 		AAACE01613CCB1F500A2118F /* DefaultSHKConfigurator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DefaultSHKConfigurator.m; sourceTree = "<group>"; };
 		AAACE01913CCB1F500A2118F /* SHKConfiguration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SHKConfiguration.h; sourceTree = "<group>"; };
@@ -1351,7 +1332,6 @@
 				7A0F91CB156B9FCE009CB40A /* Delicious */,
 				B7EFCD8914C6B966004910F1 /* Diigo */,
 				4379F2891291AC9700D2A41E /* Evernote */,
-				43A536C411DBE3B9004A1712 /* Facebook */,
 				AAACE05313CCBED400A2118F /* Flickr */,
 				C042A61D1430AB4D00DF9AF6 /* FoursquareV2 */,
 				4503EBB71691020A0057294C /* Google Plus */,
@@ -1369,18 +1349,6 @@
 				FA5AA3B4149625010064DB24 /* Vkontakte */,
 			);
 			path = Services;
-			sourceTree = "<group>";
-		};
-		43A536C411DBE3B9004A1712 /* Facebook */ = {
-			isa = PBXGroup;
-			children = (
-				AA6C09EA16122ED90023EE48 /* facebook-ios-sdk.xcodeproj */,
-				43A536DC11DBE3B9004A1712 /* SHKFacebook.h */,
-				43A536DD11DBE3B9004A1712 /* SHKFacebook.m */,
-				7A56BFD816591FE000134F04 /* SHKiOSFacebook.h */,
-				7A56BFD916591FE000134F04 /* SHKiOSFacebook.m */,
-			);
-			path = Facebook;
 			sourceTree = "<group>";
 		};
 		43A536DE11DBE3B9004A1712 /* Google Reader */ = {
@@ -1721,15 +1689,6 @@
 			);
 			name = ObjectiveFlickr;
 			path = ../../../../../Submodules/objectiveflickr/Source;
-			sourceTree = "<group>";
-		};
-		AA6C09EB16122ED90023EE48 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				AA6C09F316122ED90023EE48 /* libfacebook_ios_sdk.a */,
-				AA7585701624AABF001EFCBE /* FacebookSDKTests.octest */,
-			);
-			name = Products;
 			sourceTree = "<group>";
 		};
 		AAACE01413CCB1F500A2118F /* Configuration */ = {
@@ -2375,12 +2334,6 @@
 			);
 			mainGroup = 29B97314FDCFA39411CA2CEA /* CustomTemplate */;
 			projectDirPath = "";
-			projectReferences = (
-				{
-					ProductGroup = AA6C09EB16122ED90023EE48 /* Products */;
-					ProjectRef = AA6C09EA16122ED90023EE48 /* facebook-ios-sdk.xcodeproj */;
-				},
-			);
 			projectRoot = "";
 			targets = (
 				1D6058900D05DD3D006BFB54 /* Demo App */,
@@ -2402,23 +2355,6 @@
 			);
 		};
 /* End PBXProject section */
-
-/* Begin PBXReferenceProxy section */
-		AA6C09F316122ED90023EE48 /* libfacebook_ios_sdk.a */ = {
-			isa = PBXReferenceProxy;
-			fileType = archive.ar;
-			path = libfacebook_ios_sdk.a;
-			remoteRef = AA6C09F216122ED90023EE48 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		AA7585701624AABF001EFCBE /* FacebookSDKTests.octest */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = FacebookSDKTests.octest;
-			remoteRef = AA75856F1624AABF001EFCBE /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		1D60588D0D05DD3D006BFB54 /* Resources */ = {
