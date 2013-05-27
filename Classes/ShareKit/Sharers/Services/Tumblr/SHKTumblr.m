@@ -328,6 +328,12 @@ NSString * const kSHKTumblrUserInfo = @"kSHKTumblrUserInfo";
             [typeParam release];
             [captionParam release];
             
+            if (self.item.URL) {
+                OARequestParameter *linkParam = [[OARequestParameter alloc] initWithName:@"link" value:self.item.URL.absoluteString];
+                [params addObject:linkParam];
+                [linkParam release];
+            }
+            
             break;
         }
         default:
