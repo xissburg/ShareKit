@@ -18,10 +18,22 @@
         
         id object = [self objectForKey:key];        
         if (object == [NSNull null]) {
-            [self setObject:@"" forKey:key];
+            [self removeObjectForKey:key];
         }
         else if ([object isKindOfClass:[NSMutableDictionary class]]) {
             [object convertNSNullsToEmptyStrings];
+        }
+        else if ([object isKindOfClass:[NSMutableArray class]]) {
+            NSMutableArray *objsToRemove = [[NSMutableArray alloc] init];
+            for (id obj in object) {
+                if (obj == [NSNull null]) {
+                    [objsToRemove addObject:obj];
+                }
+                else if ([obj isKindOfClass:[NSMutableDictionary class]]) {
+                    [obj convertNSNullsToEmptyStrings];
+                }
+            }
+            [object removeObjectsInArray:objsToRemove];
         }
     }
 }
