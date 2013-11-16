@@ -34,14 +34,6 @@
 
 @implementation SHKInstagram
 
-- (void)dealloc {
-    
-	_dic.delegate = nil;
-	[_dic release];
-	
-	[super dealloc];
-}
-
 #pragma mark -
 #pragma mark Configuration : Service Defination
 
@@ -153,7 +145,6 @@
 			}
 		}
 		if(bestView.window != nil){
-			[self retain];	// retain ourselves until the menu has done it's job or we'll nuke the popup (see documentInteractionControllerDidDismissOpenInMenu)
 			[self.dic presentOpenInMenuFromRect:self.item.popOverSourceRect inView:bestView animated:YES];
 		}
 		return YES;
@@ -173,7 +164,6 @@
 	} else {
 		[self sendDidCancel];
     }
-	[self autorelease];
 }
 - (void) documentInteractionController: (UIDocumentInteractionController *) controller willBeginSendingToApplication: (NSString *) application{
 	self.didSend = true;

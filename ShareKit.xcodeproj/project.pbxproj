@@ -11,6 +11,8 @@
 		1B2D4A47176B65C500C77438 /* SHKTwitter.m in Sources */ = {isa = PBXBuildFile; fileRef = 43A536E911DBE3B9004A1712 /* SHKTwitter.m */; };
 		1B2D4A48176B65D800C77438 /* SHKiOS5Twitter.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A56BFE01659278E00134F04 /* SHKiOS5Twitter.m */; };
 		1B2D4A58176B846D00C77438 /* libTwitter.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B2D4A3A176B659400C77438 /* libTwitter.a */; };
+		1B3A89ED1835923D00447EC4 /* SHKInstagram.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A16F3AF16134A790019645D /* SHKInstagram.m */; };
+		1B3A89F01835927500447EC4 /* libInstagram.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B3A89EC1835913900447EC4 /* libInstagram.a */; };
 		1D60589B0D05DD56006BFB54 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; };
 		1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D30AB110D05D00D00671497 /* Foundation.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF5F4DF0D08C38300B7A737 /* UIKit.framework */; };
@@ -131,6 +133,13 @@
 			remoteGlobalIDString = 1B2D4A39176B659400C77438;
 			remoteInfo = Twitter;
 		};
+		1B3A89EE1835926700447EC4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 29B97313FDCFA39411CA2CEA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 1B3A89E31835913900447EC4;
+			remoteInfo = Instagram;
+		};
 		1B86F7A117077CB300F0B1B0 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 29B97313FDCFA39411CA2CEA /* Project object */;
@@ -242,6 +251,7 @@
 		1A52EDF415CB032B00A737D8 /* SHKKippt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SHKKippt.h; sourceTree = "<group>"; };
 		1A52EDF515CB032B00A737D8 /* SHKKippt.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = SHKKippt.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		1B2D4A3A176B659400C77438 /* libTwitter.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libTwitter.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		1B3A89EC1835913900447EC4 /* libInstagram.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libInstagram.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		1D30AB110D05D00D00671497 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		1D6058910D05DD3D006BFB54 /* ShareKitDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ShareKitDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1DF5F4DF0D08C38300B7A737 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
@@ -713,6 +723,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		1B3A89E81835913900447EC4 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		1D60588F0D05DD3D006BFB54 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -775,6 +792,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1B3A89F01835927500447EC4 /* libInstagram.a in Frameworks */,
 				1B2D4A58176B846D00C77438 /* libTwitter.a in Frameworks */,
 				7A49DBC716BC19BD004B7E78 /* libReadability.a in Frameworks */,
 				7AC28F0B165A21C2006D7441 /* libCopy.a in Frameworks */,
@@ -887,6 +905,7 @@
 				AABBED86162F0C4D009D46E4 /* libTumblr.a */,
 				7A49DBC316BC193E004B7E78 /* libReadability.a */,
 				1B2D4A3A176B659400C77438 /* libTwitter.a */,
+				1B3A89EC1835913900447EC4 /* libInstagram.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -2055,6 +2074,22 @@
 			productReference = 1B2D4A3A176B659400C77438 /* libTwitter.a */;
 			productType = "com.apple.product-type.library.static";
 		};
+		1B3A89E31835913900447EC4 /* Instagram */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1B3A89E91835913900447EC4 /* Build configuration list for PBXNativeTarget "Instagram" */;
+			buildPhases = (
+				1B3A89E41835913900447EC4 /* Sources */,
+				1B3A89E81835913900447EC4 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Instagram;
+			productName = Twitter;
+			productReference = 1B3A89EC1835913900447EC4 /* libInstagram.a */;
+			productType = "com.apple.product-type.library.static";
+		};
 		1D6058900D05DD3D006BFB54 /* Demo App */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 1D6058960D05DD3E006BFB54 /* Build configuration list for PBXNativeTarget "Demo App" */;
@@ -2170,6 +2205,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				1B3A89EF1835926700447EC4 /* PBXTargetDependency */,
 				1B2D4A4A176B65E700C77438 /* PBXTargetDependency */,
 				1B86F7A417077CB700F0B1B0 /* PBXTargetDependency */,
 				1B86F7A217077CB300F0B1B0 /* PBXTargetDependency */,
@@ -2349,7 +2385,7 @@
 		29B97313FDCFA39411CA2CEA /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0460;
+				LastUpgradeCheck = 0500;
 			};
 			buildConfigurationList = C01FCF4E08A954540054247B /* Build configuration list for PBXProject "ShareKit" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -2391,6 +2427,7 @@
 				AABBED7E162F0C4D009D46E4 /* Tumbl */,
 				7A49DBBB16BC193E004B7E78 /* Readability */,
 				1B2D4A39176B659400C77438 /* Twitter */,
+				1B3A89E31835913900447EC4 /* Instagram */,
 			);
 		};
 /* End PBXProject section */
@@ -2431,6 +2468,14 @@
 				1B2D4A48176B65D800C77438 /* SHKiOS5Twitter.m in Sources */,
 				1B2D4A47176B65C500C77438 /* SHKTwitter.m in Sources */,
 				1B2D4A46176B65BA00C77438 /* SHKiOSTwitter.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1B3A89E41835913900447EC4 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1B3A89ED1835923D00447EC4 /* SHKInstagram.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2621,6 +2666,11 @@
 			target = 1B2D4A39176B659400C77438 /* Twitter */;
 			targetProxy = 1B2D4A49176B65E700C77438 /* PBXContainerItemProxy */;
 		};
+		1B3A89EF1835926700447EC4 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 1B3A89E31835913900447EC4 /* Instagram */;
+			targetProxy = 1B3A89EE1835926700447EC4 /* PBXContainerItemProxy */;
+		};
 		1B86F7A217077CB300F0B1B0 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = AABBECE5162F07DF009D46E4 /* Save to Album */;
@@ -2759,6 +2809,75 @@
 					"-all_load",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				VALIDATE_PRODUCT = NO;
+			};
+			name = Release;
+		};
+		1B3A89EA1835913900447EC4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "compiler-default";
+				CLANG_CXX_LIBRARY = "compiler-default";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = NO;
+				CLANG_WARN_EMPTY_BODY = NO;
+				CLANG_WARN_ENUM_CONVERSION = NO;
+				CLANG_WARN_INT_CONVERSION = NO;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = NO;
+				COPY_PHASE_STRIP = NO;
+				DSTROOT = /tmp/ShareKitLibrary.dst;
+				FRAMEWORK_SEARCH_PATHS = "\"$SRCROOT/Frameworks\"";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "ShareKitLibrary/ShareKitLibrary-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				ONLY_ACTIVE_ARCH = NO;
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-all_load",
+				);
+				PRODUCT_NAME = Instagram;
+				SKIP_INSTALL = YES;
+				VALIDATE_PRODUCT = NO;
+			};
+			name = Debug;
+		};
+		1B3A89EB1835913900447EC4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "compiler-default";
+				CLANG_CXX_LIBRARY = "compiler-default";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = NO;
+				CLANG_WARN_EMPTY_BODY = NO;
+				CLANG_WARN_ENUM_CONVERSION = NO;
+				CLANG_WARN_INT_CONVERSION = NO;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = NO;
+				COPY_PHASE_STRIP = YES;
+				DSTROOT = /tmp/ShareKitLibrary.dst;
+				FRAMEWORK_SEARCH_PATHS = "\"$SRCROOT/Frameworks\"";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "ShareKitLibrary/ShareKitLibrary-Prefix.pch";
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				ONLY_ACTIVE_ARCH = NO;
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-all_load",
+				);
+				PRODUCT_NAME = Instagram;
 				SKIP_INSTALL = YES;
 				VALIDATE_PRODUCT = NO;
 			};
@@ -3532,6 +3651,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -3560,6 +3680,15 @@
 			buildConfigurations = (
 				1B2D4A43176B659400C77438 /* Debug */,
 				1B2D4A44176B659400C77438 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1B3A89E91835913900447EC4 /* Build configuration list for PBXNativeTarget "Instagram" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1B3A89EA1835913900447EC4 /* Debug */,
+				1B3A89EB1835913900447EC4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
