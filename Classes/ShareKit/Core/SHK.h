@@ -43,6 +43,7 @@ extern NSString * const SHKSendDidCancelNotification;
 extern NSString * const SHKAuthDidFinishNotification;
 
 @class SHKActionSheet;
+@class SHKSharer;
 
 @interface SHK : NSObject 
 
@@ -57,6 +58,13 @@ extern NSString * const SHKAuthDidFinishNotification;
 + (SHK *)currentHelper;
 
 + (NSDictionary *)sharersDictionary;
+
+#pragma mark -
+#pragma mark Sharer Management
+
+//some sharers need to be retained until callback from UI or web service, otherwise they would be prematurely deallocated. Each sharer is responsible for removing itself on callback.
+- (void)keepSharerReference:(SHKSharer *)sharer;
+- (void)removeSharerReference:(SHKSharer *)sharer;
 
 #pragma mark -
 #pragma mark View Management

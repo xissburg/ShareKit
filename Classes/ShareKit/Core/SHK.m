@@ -49,6 +49,7 @@ NSString * SHKLocalizedStringFormat(NSString* key);
 @interface SHK ()
 
 @property (nonatomic, assign) UIViewController *rootViewController;
+@property (strong) NSMutableArray *sharerReferences;
 @property SEL showMethod;
 
 @end
@@ -64,12 +65,35 @@ BOOL SHKinit;
     });
 }
 
+- (id)init {
+    
+    self = [super init];
+    if (self) {
+        _sharerReferences = [@[] mutableCopy];
+    }
+    return self;
+}
+
 - (void)dealloc
 {
 	[_currentView release];
 	[_pendingView release];
 	[_offlineQueue release];
+    [_sharerReferences release];
 	[super dealloc];
+}
+
+#pragma mark -
+#pragma mark Sharer Management
+
+- (void)keepSharerReference:(SHKSharer *)sharer {
+    
+    [self.sharerReferences addObject:sharer];
+}
+
+- (void)removeSharerReference:(SHKSharer *)sharer {
+    
+    [self.sharerReferences removeObject:sharer];
 }
 
 #pragma mark -
